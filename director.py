@@ -46,6 +46,6 @@ class Director_1:
         '''Show outputs for user.
         Arg: self'''
 
-        print(f"The card is: {self.cards_num}")
+        print(f"The card is: {self.card}")
         print(f"Your score is: {self.total_score}\n")
         self.is_playing == (self.score > 0)
