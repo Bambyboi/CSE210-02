@@ -5,14 +5,11 @@ class Director:
     def __init__(self):
         self.card = Card()
         self.another = ""
-        # self.Q = self.question(self)
         self.choice = ""
         self.score = 0
         self.keep_playing = True
         self.points = 0
-        # self.random_card1 = self.card_draw(self)
-        # self.random_card2 = self.card_draw(self)
-        #self.total = Card()
+
     def start_playing(self):
         """Gets things going and will be cycled through every time they choose to play another round"""
         while self.keep_playing:
@@ -23,13 +20,13 @@ class Director:
     def get_inputs(self):
         """Starts things out by getting assigning card_number1"""
         self.card.card_number1
+        
 
     def do_updates(self):
         """Checks the guess of the player by reaching into Card.py and gives or takes poins accordingly."""
         if self.choice == "low":
             self.points = self.card.low()
-            
-
+        
         elif self.choice == "high":
             self.points = self.card.high()
 
@@ -39,27 +36,17 @@ class Director:
         if yes, it gets their guess and startes everything over. 
         if no, it stopps the game. 
         """
-       # print(f"\nYour new card is: {self.card.card_number2}")
-       # print(f"Your score is: {self.score}")
-        print(f"\nYour new card is: {self.card.card_number2}")
-        print(f"Your score is: {self.card.point_total}")
-        self.another = input("would you like another card (y/n):")
+
+        self.another = input("Play again (y/n):")
+        print(f"\nThe card is: {self.card.card_number1}")
+        
         if self.another == "y":
             self.choice = input("High or Low? [high/low]:")
+            print(f"Your next card was {self.card.next_card}")
+            print(f"Your score is: {self.card.point_total}")
+            
             self.do_updates
-            #self.keep_playing = (self.choice == "y")
+
         else:
             self.keep_playing = False
-    
-
-
-    #def question(self):
-    #     self.choice = input("high or low:")
-    #     self.answer
-
-
-    # def card_draw(self):
-    #     return self.card.card(self)
-
-    # def in_or_out(self):
-    #     choice = input("keep playing?")
+        
